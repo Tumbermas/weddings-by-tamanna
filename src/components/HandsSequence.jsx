@@ -15,10 +15,12 @@ export function HandsSequence() {
     if (!isLoaded) return
 
     const ctx = gsap.context(() => {
+      // Pinned scroll sequence for hands - giving enough time to appreciate
       ScrollTrigger.create({
         trigger: containerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
+        start: 'top top',
+        end: '+=' + (window.innerHeight * 1.5), // 150vh scroll distance
+        pin: true,
         scrub: true,
         onUpdate: (self) => {
           const frame = Math.floor(self.progress * 40)
@@ -35,13 +37,13 @@ export function HandsSequence() {
       ref={containerRef}
       style={{
         position: 'relative',
-        height: '80vh',
+        height: '100vh',
         width: '100%',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#faf9f7'
+        background: '#fffaf5'
       }}
     >
       {isLoaded && (

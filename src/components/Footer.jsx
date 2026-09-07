@@ -1,10 +1,8 @@
-import { BouquetAccent } from './Bouquet'
-
 export function Footer() {
   return (
     <footer style={{
       padding: '80px 24px 120px',
-      background: '#f5f3f0',
+      background: '#fffaf5',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -19,7 +17,7 @@ export function Footer() {
           fontFamily: 'Cormorant Garamond, serif',
           fontSize: 'clamp(32px, 5vw, 56px)',
           fontWeight: 400,
-          color: '#1a1a1a',
+          color: '#2a1f1a',
           marginBottom: '24px',
           lineHeight: 1.2
         }}>
@@ -29,7 +27,7 @@ export function Footer() {
         <p style={{
           fontFamily: 'Inter, sans-serif',
           fontSize: '14px',
-          color: '#666',
+          color: '#6b5d52',
           marginBottom: '32px'
         }}>
           Now booking for 2024/2025
@@ -45,19 +43,20 @@ export function Footer() {
             fontSize: '13px',
             letterSpacing: '2px',
             textTransform: 'uppercase',
-            color: '#1a1a1a',
+            color: '#2a1f1a',
             padding: '18px 40px',
-            border: '1px solid #1a1a1a',
+            border: '1px solid #2a1f1a',
             transition: 'all 0.3s ease',
-            marginBottom: '40px'
+            marginBottom: '40px',
+            background: 'transparent'
           }}
           onMouseEnter={(e) => {
-            e.target.style.background = '#1a1a1a'
-            e.target.style.color = '#faf9f7'
+            e.target.style.background = '#2a1f1a'
+            e.target.style.color = '#fffaf5'
           }}
           onMouseLeave={(e) => {
             e.target.style.background = 'transparent'
-            e.target.style.color = '#1a1a1a'
+            e.target.style.color = '#2a1f1a'
           }}
         >
           DM to Book
@@ -78,11 +77,11 @@ export function Footer() {
               fontSize: '12px',
               letterSpacing: '1.5px',
               textTransform: 'uppercase',
-              color: '#666',
+              color: '#6b5d52',
               transition: 'color 0.2s ease'
             }}
-            onMouseEnter={(e) => e.target.style.color = '#1a1a1a'}
-            onMouseLeave={(e) => e.target.style.color = '#666'}
+            onMouseEnter={(e) => e.target.style.color = '#2a1f1a'}
+            onMouseLeave={(e) => e.target.style.color = '#6b5d52'}
           >
             Instagram
           </a>
@@ -95,11 +94,11 @@ export function Footer() {
               fontSize: '12px',
               letterSpacing: '1.5px',
               textTransform: 'uppercase',
-              color: '#666',
+              color: '#6b5d52',
               transition: 'color 0.2s ease'
             }}
-            onMouseEnter={(e) => e.target.style.color = '#1a1a1a'}
-            onMouseLeave={(e) => e.target.style.color = '#666'}
+            onMouseEnter={(e) => e.target.style.color = '#2a1f1a'}
+            onMouseLeave={(e) => e.target.style.color = '#6b5d52'}
           >
             TikTok
           </a>
@@ -108,18 +107,15 @@ export function Footer() {
         <div style={{
           marginTop: '60px',
           paddingTop: '32px',
-          borderTop: '1px solid #e5e0d8',
+          borderTop: '1px solid #eaddd4',
           fontFamily: 'Inter, sans-serif',
           fontSize: '11px',
-          color: '#999',
+          color: '#9a8b7f',
           letterSpacing: '1px'
         }}>
           © {new Date().getFullYear()} Weddings by Tamanna
         </div>
       </div>
-
-      {/* Subtle bouquet accent */}
-      <BouquetAccent />
     </footer>
   )
 }

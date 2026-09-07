@@ -5,9 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const videos = [
-  { src: '/1.mp4', title: 'Wedding Moments' },
-  { src: '/2.mp4', title: 'Celebration' },
-  { src: '/3.mp4', title: 'Details' }
+  { src: '/2.mp4', title: 'Wedding Moments' },
+  { src: '/3.mp4', title: 'Celebration' },
+  { src: '/1.mp4', title: 'Details' }
 ]
 
 export function VideoGallery() {
@@ -16,7 +16,7 @@ export function VideoGallery() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate section in
+      // Animate section in - softer, warmer feel
       gsap.from(sectionRef.current.querySelectorAll('.video-card'), {
         opacity: 0,
         y: 60,
@@ -51,11 +51,24 @@ export function VideoGallery() {
         margin: '0 auto'
       }}
     >
+      {/* Section label */}
+      <p style={{
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '11px',
+        letterSpacing: '4px',
+        textTransform: 'uppercase',
+        color: '#6b5d52',
+        marginBottom: '48px',
+        textAlign: 'center'
+      }}>
+        Selected Work
+      </p>
+
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '24px',
-        marginTop: '60px'
+        gap: '20px',
+        marginTop: '20px'
       }}>
         {videos.map((video, index) => (
           <div
@@ -63,9 +76,9 @@ export function VideoGallery() {
             className="video-card"
             style={{
               position: 'relative',
-              borderRadius: '4px',
+              borderRadius: '2px',
               overflow: 'hidden',
-              background: '#f0ede9',
+              background: '#f9f5f2',
               aspectRatio: '9/16',
               maxHeight: '600px'
             }}
@@ -109,29 +122,6 @@ export function VideoGallery() {
                 }
               }}
             />
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              padding: '20px',
-              background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 100%)',
-              opacity: 0,
-              transition: 'opacity 0.3s ease'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
-            >
-              <p style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '12px',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                color: '#fff'
-              }}>
-                {video.title}
-              </p>
-            </div>
           </div>
         ))}
       </div>

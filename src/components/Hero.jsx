@@ -16,7 +16,7 @@ export function Hero() {
     if (!isLoaded) return
 
     const ctx = gsap.context(() => {
-      // Fade in hero content
+      // Fade in hero content on load
       gsap.fromTo(textRef.current.children, 
         { opacity: 0, y: 30 },
         { 
@@ -29,13 +29,16 @@ export function Hero() {
         }
       )
 
-      // Scroll-driven image sequence
+      // Scroll-driven image sequence with PINNED behavior
+      // The hero stays in viewport while user scrolls through ~200vh of scroll distance
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'top top',
-        end: 'bottom top',
+        end: '+=' + (window.innerHeight * 1.8), // 180vh scroll distance for smooth animation
+        pin: true,
         scrub: true,
         onUpdate: (self) => {
+          // Map scroll progress (0-1) to frames (0-24)
           const frame = Math.floor(self.progress * 24)
           setCurrentFrame(frame)
         }
@@ -78,7 +81,7 @@ export function Hero() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              opacity: 0.9
+              opacity: 0.95
             }}
             loading="eager"
           />
@@ -87,7 +90,7 @@ export function Hero() {
           <div style={{
             width: '100%',
             height: '100%',
-            background: '#f5f3f0',
+            background: '#faf9f7',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
@@ -104,14 +107,14 @@ export function Hero() {
         )}
       </div>
 
-      {/* Overlay gradient */}
+      {/* Subtle warm gradient overlay - softer, warmer tone */}
       <div style={{
         position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%',
-        background: 'linear-gradient(to bottom, rgba(250,249,247,0.3) 0%, rgba(250,249,247,0.6) 50%, rgba(250,249,247,0.95) 100%)',
+        background: 'linear-gradient(to bottom, rgba(255,251,245,0.2) 0%, rgba(255,251,245,0.5) 50%, rgba(255,251,245,0.85) 100%)',
         zIndex: 1
       }} />
 
@@ -128,11 +131,11 @@ export function Hero() {
       >
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '13px',
-          letterSpacing: '3px',
+          fontSize: '12px',
+          letterSpacing: '4px',
           textTransform: 'uppercase',
-          color: '#4a4a4a',
-          marginBottom: '16px',
+          color: '#5a4a42',
+          marginBottom: '14px',
           opacity: 0
         }}>
           Wedding Content Creator
@@ -140,11 +143,11 @@ export function Hero() {
         
         <h1 style={{
           fontFamily: 'Cormorant Garamond, serif',
-          fontSize: 'clamp(48px, 8vw, 96px)',
+          fontSize: 'clamp(42px, 7vw, 84px)',
           fontWeight: 400,
-          color: '#1a1a1a',
-          marginBottom: '12px',
-          lineHeight: 1,
+          color: '#2a1f1a',
+          marginBottom: '10px',
+          lineHeight: 1.05,
           opacity: 0
         }}>
           Weddings by Tamanna
@@ -152,11 +155,11 @@ export function Hero() {
         
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '14px',
-          letterSpacing: '2px',
+          fontSize: '13px',
+          letterSpacing: '2.5px',
           textTransform: 'uppercase',
-          color: '#666',
-          marginBottom: '32px',
+          color: '#6b5d52',
+          marginBottom: '28px',
           opacity: 0
         }}>
           London & UK
@@ -169,22 +172,23 @@ export function Hero() {
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
-            fontSize: '13px',
-            letterSpacing: '2px',
+            fontSize: '12px',
+            letterSpacing: '2.5px',
             textTransform: 'uppercase',
-            color: '#1a1a1a',
-            padding: '16px 32px',
-            border: '1px solid #1a1a1a',
+            color: '#2a1f1a',
+            padding: '15px 36px',
+            border: '1px solid #2a1f1a',
             transition: 'all 0.3s ease',
-            opacity: 0
+            opacity: 0,
+            background: 'transparent'
           }}
           onMouseEnter={(e) => {
-            e.target.style.background = '#1a1a1a'
-            e.target.style.color = '#faf9f7'
+            e.target.style.background = '#2a1f1a'
+            e.target.style.color = '#fffaf5'
           }}
           onMouseLeave={(e) => {
             e.target.style.background = 'transparent'
-            e.target.style.color = '#1a1a1a'
+            e.target.style.color = '#2a1f1a'
           }}
         >
           DM to Enquire

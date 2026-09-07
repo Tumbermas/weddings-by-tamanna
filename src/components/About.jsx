@@ -33,18 +33,19 @@ export function About() {
         padding: '140px 24px',
         maxWidth: '900px',
         margin: '0 auto',
-        textAlign: 'center'
+        textAlign: 'center',
+        background: '#fffaf5'
       }}
     >
       <p 
         className="about-line"
         style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '13px',
-          letterSpacing: '3px',
+          fontSize: '11px',
+          letterSpacing: '4px',
           textTransform: 'uppercase',
-          color: '#666',
-          marginBottom: '24px'
+          color: '#6b5d52',
+          marginBottom: '28px'
         }}
       >
         About
@@ -56,7 +57,7 @@ export function About() {
           fontFamily: 'Cormorant Garamond, serif',
           fontSize: 'clamp(28px, 4vw, 48px)',
           fontWeight: 400,
-          color: '#1a1a1a',
+          color: '#2a1f1a',
           lineHeight: 1.4,
           marginBottom: '32px'
         }}
@@ -68,9 +69,9 @@ export function About() {
         className="about-line"
         style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '16px',
-          lineHeight: 1.8,
-          color: '#4a4a4a',
+          fontSize: '15px',
+          lineHeight: 1.9,
+          color: '#5a4a42',
           maxWidth: '600px',
           margin: '0 auto 40px'
         }}
@@ -88,34 +89,34 @@ export function About() {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '24px',
+          gap: '28px',
           flexWrap: 'wrap'
         }}
       >
         <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '13px',
-          letterSpacing: '2px',
+          fontSize: '12px',
+          letterSpacing: '2.5px',
           textTransform: 'uppercase',
-          color: '#666'
+          color: '#6b5d52'
         }}>
           Weddings
         </span>
         <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '13px',
-          letterSpacing: '2px',
+          fontSize: '12px',
+          letterSpacing: '2.5px',
           textTransform: 'uppercase',
-          color: '#666'
+          color: '#6b5d52'
         }}>
           Events
         </span>
         <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '13px',
-          letterSpacing: '2px',
+          fontSize: '12px',
+          letterSpacing: '2.5px',
           textTransform: 'uppercase',
-          color: '#666'
+          color: '#6b5d52'
         }}>
           Content
         </span>
