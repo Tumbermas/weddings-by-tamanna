@@ -5,6 +5,8 @@ import { VideoGallery } from './components/VideoGallery'
 import { HandsSequence } from './components/HandsSequence'
 import { About } from './components/About'
 import { Footer } from './components/Footer'
+import { EditorialTransition } from './components/EditorialTransition'
+import { DetailsSection } from './components/DetailsSection'
 
 function App() {
   const lenisRef = useRef(null)
@@ -39,7 +41,9 @@ function App() {
   return (
     <main style={{ overflow: 'hidden' }}>
       <Hero />
+      <EditorialTransition />
       <VideoGallery />
+      <DetailsSection />
       <HandsSequence />
       <About />
       <Footer />
