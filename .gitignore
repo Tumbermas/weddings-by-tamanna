@@ -5,36 +5,44 @@ node_modules/
 # Build artifacts
 dist/
 build/
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
+*.js.map
 
-# Python specific
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-env/
-venv/
-.venv/
-.ENV
-.pip
-.mypy_cache/
-.pytest_cache/
-.coverage
+*.so
+
+# Coverage
 coverage/
 htmlcov/
+.coverage
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Testing
+.nyc_output/
+coverage/lcov-report/
+
+# Distribution / packaging
+.Python
+*.egg-info/
+.eggs/
+.installed.cfg
+*.egg
 
 # OS generated files
 .DS_Store
@@ -44,39 +52,4 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
-Thumbs.db:encryptable
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-*.tmp
-
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# Compressed files
-*.zip
-*.tar.gz
-*.gz
-*.rar
-*.7z
-*.bz2
-*.xz
-*.tgz
-*.tar
-*.Z
-*.lz
-*.lzo
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.zst
 ```
