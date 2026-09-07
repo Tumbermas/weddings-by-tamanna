@@ -1,34 +1,60 @@
 export function Footer() {
   return (
     <footer style={{
-      padding: '80px 24px 120px',
-      background: '#fffaf5',
+      padding: '120px 24px 80px',
+      background: '#1a1614',
       position: 'relative',
       overflow: 'hidden'
     }}>
+      {/* Subtle burgundy accent */}
       <div style={{
-        maxWidth: '600px',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '2px',
+        background: 'linear-gradient(to right, transparent, rgba(180, 140, 120, 0.4), transparent)'
+      }} />
+
+      <div style={{
+        maxWidth: '500px',
         margin: '0 auto',
         textAlign: 'center',
         position: 'relative',
         zIndex: 2
       }}>
+        {/* Section marker */}
+        <p style={{
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '9px',
+          letterSpacing: '4px',
+          textTransform: 'uppercase',
+          color: '#ad9f96',
+          marginBottom: '32px',
+          fontWeight: 300
+        }}>
+          03 / Enquire
+        </p>
+
         <h2 style={{
           fontFamily: 'Cormorant Garamond, serif',
-          fontSize: 'clamp(32px, 5vw, 56px)',
-          fontWeight: 400,
-          color: '#2a1f1a',
-          marginBottom: '24px',
-          lineHeight: 1.2
+          fontSize: 'clamp(28px, 5vw, 48px)',
+          fontWeight: 300,
+          color: '#fffaf5',
+          marginBottom: '16px',
+          lineHeight: 1.3,
+          fontStyle: 'italic'
         }}>
           Let's create something beautiful
         </h2>
         
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '14px',
-          color: '#6b5d52',
-          marginBottom: '32px'
+          fontSize: '13px',
+          color: '#ad9f96',
+          marginBottom: '40px',
+          fontWeight: 300,
+          lineHeight: 1.8
         }}>
           Now booking for 2024/2025
         </p>
@@ -40,33 +66,35 @@ export function Footer() {
           style={{
             display: 'inline-block',
             fontFamily: 'Inter, sans-serif',
-            fontSize: '13px',
-            letterSpacing: '2px',
+            fontSize: '11px',
+            letterSpacing: '3px',
             textTransform: 'uppercase',
-            color: '#2a1f1a',
+            color: '#fffaf5',
             padding: '18px 40px',
-            border: '1px solid #2a1f1a',
-            transition: 'all 0.3s ease',
-            marginBottom: '40px',
+            border: '1px solid rgba(234, 221, 212, 0.4)',
+            transition: 'all 0.4s ease',
+            marginBottom: '48px',
             background: 'transparent'
           }}
           onMouseEnter={(e) => {
-            e.target.style.background = '#2a1f1a'
-            e.target.style.color = '#fffaf5'
+            e.target.style.background = 'rgba(180, 140, 120, 0.15)'
+            e.target.style.borderColor = 'rgba(180, 140, 120, 0.5)'
           }}
           onMouseLeave={(e) => {
             e.target.style.background = 'transparent'
-            e.target.style.color = '#2a1f1a'
+            e.target.style.borderColor = 'rgba(234, 221, 212, 0.4)'
           }}
         >
           DM to Book
         </a>
 
+        {/* Social links */}
         <div style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '32px',
-          flexWrap: 'wrap'
+          gap: '40px',
+          flexWrap: 'wrap',
+          marginBottom: '60px'
         }}>
           <a 
             href="https://instagram.com/weddingsbytamanna"
@@ -74,14 +102,15 @@ export function Footer() {
             rel="noopener noreferrer"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: '12px',
-              letterSpacing: '1.5px',
+              fontSize: '11px',
+              letterSpacing: '2px',
               textTransform: 'uppercase',
-              color: '#6b5d52',
-              transition: 'color 0.2s ease'
+              color: '#ad9f96',
+              transition: 'color 0.3s ease',
+              fontWeight: 300
             }}
-            onMouseEnter={(e) => e.target.style.color = '#2a1f1a'}
-            onMouseLeave={(e) => e.target.style.color = '#6b5d52'}
+            onMouseEnter={(e) => e.target.style.color = '#eaddd4'}
+            onMouseLeave={(e) => e.target.style.color = '#ad9f96'}
           >
             Instagram
           </a>
@@ -91,27 +120,28 @@ export function Footer() {
             rel="noopener noreferrer"
             style={{
               fontFamily: 'Inter, sans-serif',
-              fontSize: '12px',
-              letterSpacing: '1.5px',
+              fontSize: '11px',
+              letterSpacing: '2px',
               textTransform: 'uppercase',
-              color: '#6b5d52',
-              transition: 'color 0.2s ease'
+              color: '#ad9f96',
+              transition: 'color 0.3s ease',
+              fontWeight: 300
             }}
-            onMouseEnter={(e) => e.target.style.color = '#2a1f1a'}
-            onMouseLeave={(e) => e.target.style.color = '#6b5d52'}
+            onMouseEnter={(e) => e.target.style.color = '#eaddd4'}
+            onMouseLeave={(e) => e.target.style.color = '#ad9f96'}
           >
             TikTok
           </a>
         </div>
 
+        {/* Copyright */}
         <div style={{
-          marginTop: '60px',
-          paddingTop: '32px',
-          borderTop: '1px solid #eaddd4',
+          paddingTop: '40px',
+          borderTop: '1px solid rgba(173, 159, 150, 0.15)',
           fontFamily: 'Inter, sans-serif',
-          fontSize: '11px',
-          color: '#9a8b7f',
-          letterSpacing: '1px'
+          fontSize: '10px',
+          color: '#6b5d52',
+          letterSpacing: '1.5px'
         }}>
           © {new Date().getFullYear()} Weddings by Tamanna
         </div>

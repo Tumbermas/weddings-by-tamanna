@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function HandsSequence() {
   const containerRef = useRef(null)
-  const imageRef = useRef(null)
+  const contentRef = useRef(null)
+  const labelRef = useRef(null)
   const { getImageSrc, isLoaded } = useImageSequence('hands-sequence', 41)
   const [currentFrame, setCurrentFrame] = useState(0)
 
@@ -15,11 +16,27 @@ export function HandsSequence() {
     if (!isLoaded) return
 
     const ctx = gsap.context(() => {
-      // Pinned scroll sequence for hands - giving enough time to appreciate
+      // Animate label on enter
+      gsap.fromTo(labelRef.current,
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      )
+
+      // Pinned scroll sequence for hands
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'top top',
-        end: '+=' + (window.innerHeight * 1.5), // 150vh scroll distance
+        end: '+=' + (window.innerHeight * 1.8),
         pin: true,
         scrub: true,
         onUpdate: (self) => {
@@ -37,7 +54,7 @@ export function HandsSequence() {
       ref={containerRef}
       style={{
         position: 'relative',
-        height: '100vh',
+        minHeight: '100vh',
         width: '100%',
         overflow: 'hidden',
         display: 'flex',
@@ -46,23 +63,61 @@ export function HandsSequence() {
         background: '#fffaf5'
       }}
     >
+      {/* Editorial label */}
+      <div 
+        ref={labelRef}
+        style={{
+          position: 'absolute',
+          top: '40px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 2,
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '10px',
+          letterSpacing: '5px',
+          textTransform: 'uppercase',
+          color: '#9a8b7f',
+          fontWeight: 300,
+          opacity: 0,
+          y: 20
+        }}
+      >
+        Details
+      </div>
+
+      {/* Frame indicator */}
+      <div style={{
+        position: 'absolute',
+        bottom: '32px',
+        right: '32px',
+        zIndex: 2,
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '9px',
+        letterSpacing: '2px',
+        color: '#9a8b7f',
+        opacity: 0.6
+      }}>
+        {String(currentFrame + 1).padStart(2, '0')} / 41
+      </div>
+
       {isLoaded && (
         <div
-          ref={imageRef}
+          ref={contentRef}
           style={{
             width: '100%',
-            height: '100%',
-            maxWidth: '500px',
-            maxHeight: '700px'
+            height: '85vh',
+            maxWidth: '450px',
+            position: 'relative'
           }}
         >
           <img
             src={getImageSrc(currentFrame)}
-            alt="Couple hands detail"
+            alt="Couple hands detail with mehndi and jewellery"
             style={{
               width: '100%',
               height: '100%',
-              objectFit: 'contain'
+              objectFit: 'cover',
+              borderRadius: '2px'
             }}
             loading="lazy"
           />
@@ -74,13 +129,14 @@ export function HandsSequence() {
           height: '100%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          background: '#fffaf5'
         }}>
           <div style={{
-            width: '40px',
-            height: '40px',
-            border: '2px solid #d4cfc7',
-            borderTopColor: 'transparent',
+            width: '32px',
+            height: '32px',
+            border: '1px solid rgba(180, 140, 120, 0.3)',
+            borderTopColor: 'rgba(180, 140, 120, 0.6)',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }} />

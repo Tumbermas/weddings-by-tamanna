@@ -11,13 +11,13 @@ export function About() {
     const ctx = gsap.context(() => {
       gsap.from(sectionRef.current.querySelectorAll('.about-line'), {
         opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.15,
+        y: 30,
+        duration: 1,
+        stagger: 0.12,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 70%',
+          start: 'top 65%',
           toggleActions: 'play none none reverse'
         }
       })
@@ -30,36 +30,39 @@ export function About() {
     <section 
       ref={sectionRef}
       style={{
-        padding: '140px 24px',
-        maxWidth: '900px',
+        padding: '160px 24px',
+        maxWidth: '800px',
         margin: '0 auto',
         textAlign: 'center',
         background: '#fffaf5'
       }}
     >
-      <p 
-        className="about-line"
-        style={{
+      {/* Editorial section marker */}
+      <div className="about-line" style={{
+        marginBottom: '40px'
+      }}>
+        <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '11px',
+          fontSize: '9px',
           letterSpacing: '4px',
           textTransform: 'uppercase',
-          color: '#6b5d52',
-          marginBottom: '28px'
-        }}
-      >
-        About
-      </p>
+          color: '#ad9f96',
+          fontWeight: 300
+        }}>
+          02 / About
+        </span>
+      </div>
       
       <h2 
         className="about-line"
         style={{
           fontFamily: 'Cormorant Garamond, serif',
-          fontSize: 'clamp(28px, 4vw, 48px)',
-          fontWeight: 400,
+          fontSize: 'clamp(32px, 5vw, 56px)',
+          fontWeight: 300,
           color: '#2a1f1a',
-          lineHeight: 1.4,
-          marginBottom: '32px'
+          lineHeight: 1.3,
+          marginBottom: '40px',
+          fontStyle: 'italic'
         }}
       >
         Wedding & Event Content Creation
@@ -70,53 +73,71 @@ export function About() {
         style={{
           fontFamily: 'Inter, sans-serif',
           fontSize: '15px',
-          lineHeight: 1.9,
+          lineHeight: 2,
           color: '#5a4a42',
-          maxWidth: '600px',
-          margin: '0 auto 40px'
+          maxWidth: '520px',
+          margin: '0 auto 48px'
         }}
       >
-        <p style={{ marginBottom: '16px' }}>
+        <p style={{ marginBottom: '20px', fontWeight: 300 }}>
           Based in London, capturing weddings and events across the UK.
         </p>
-        <p>
+        <p style={{ fontWeight: 300 }}>
           Creating content that feels as beautiful as your moments feel real.
         </p>
       </div>
 
+      {/* Service tags with decorative separator */}
       <div 
         className="about-line"
         style={{
           display: 'flex',
           justifyContent: 'center',
-          gap: '28px',
-          flexWrap: 'wrap'
+          alignItems: 'center',
+          gap: '32px',
+          flexWrap: 'wrap',
+          position: 'relative'
         }}
       >
         <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '12px',
-          letterSpacing: '2.5px',
+          fontSize: '11px',
+          letterSpacing: '3px',
           textTransform: 'uppercase',
-          color: '#6b5d52'
+          color: '#6b5d52',
+          fontWeight: 300
         }}>
           Weddings
         </span>
         <span style={{
+          width: '4px',
+          height: '4px',
+          background: '#ad9f96',
+          borderRadius: '50%'
+        }} />
+        <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '12px',
-          letterSpacing: '2.5px',
+          fontSize: '11px',
+          letterSpacing: '3px',
           textTransform: 'uppercase',
-          color: '#6b5d52'
+          color: '#6b5d52',
+          fontWeight: 300
         }}>
           Events
         </span>
         <span style={{
+          width: '4px',
+          height: '4px',
+          background: '#ad9f96',
+          borderRadius: '50%'
+        }} />
+        <span style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '12px',
-          letterSpacing: '2.5px',
+          fontSize: '11px',
+          letterSpacing: '3px',
           textTransform: 'uppercase',
-          color: '#6b5d52'
+          color: '#6b5d52',
+          fontWeight: 300
         }}>
           Content
         </span>
